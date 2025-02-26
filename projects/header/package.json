@@ -1,0 +1,14 @@
+{
+  "name": "@varshithgudala/header",
+  "version": "1.0.0",
+  "description": "A reusable Angular header component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-github-username/angular-header.git"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
