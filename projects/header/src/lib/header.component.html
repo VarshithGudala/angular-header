@@ -1,0 +1,53 @@
+<header class="header">
+  <div class="logo" (click)="navigateTo('/home')">
+    <img src="../assets/The_Better_Being_Co_Logo.png" alt="Company Logo" />
+  </div>
+  
+  <nav class="nav">
+    <ul>
+      <li *ngIf="isLoggedIn"><a href="/customer" (click)="navigateTo('/customer')">Customer Search</a></li>
+
+      <li *ngIf="isLoggedIn">
+        <a href="#">About Us</a>
+        <ul>
+          <li><a href="/aboutourstory" (click)="navigateTo('/aboutourstory')">Our Story</a></li>
+          <li><a href="/aboutourmission" (click)="navigateTo('/aboutourmission')">Mission</a></li>
+        </ul>
+      </li>
+
+      <li *ngIf="isLoggedIn"><a href="/contactus" (click)="navigateTo('/contactus')">Contact Us</a></li>
+      <li *ngIf="isLoggedIn"><a href="/order" (click)="navigateTo('/order')">Search</a></li>
+
+      <!-- Sign In menu -->
+      <li *ngIf="!isLoggedIn">
+        <a href="#" class="sign-in">
+          <img src="assets/man-icon.png" class="icon" /> Sign In
+        </a>
+        <ul>
+          <li class="login">Login</li>
+          <li><a href="#" class="sso" (click)="triggerSSOLogin($event)">Continue With SSO</a></li>
+        </ul>
+      </li>
+
+      <!-- Logged-in user -->
+      <li *ngIf="isLoggedIn">
+        <a href="#" class="user-name">
+          <img src="assets/man-icon.png" class="icon" /> {{ userName }}
+        </a>
+        <ul>
+          <a href="#" class="sign-out" (click)="logout()">
+            <img src="assets/logout-icon.png" class="icon" /> Sign Out
+          </a>
+        </ul>
+      </li>
+
+      <!-- Shopping Cart -->
+      <li>
+        <a href="#" class="cart">
+          <img src="assets/cart-icon.png" />
+          <span class="cart-count">0</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

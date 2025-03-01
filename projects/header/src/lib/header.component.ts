@@ -1,9 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output, Input, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'lib-header',
+  selector: 'app-header',
   standalone: true,
-  template: `<header><h1>My Header Component</h1></header>`,
-  styles: [`header { background: #6200ea; color: white; padding: 1rem; text-align: center; }`]
+  imports: [CommonModule],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  @Input() userName: string = '';
+  @Input() isLoggedIn: boolean = false;
+  @Output() ssoLogin = new EventEmitter<void>();
+  @Output() logoutEvent = new EventEmitter<void>();
+
+  private router = inject(Router);
+
+  navigateTo(route: string) {
+    this.router.navigate([route]);
+  }
+
+  triggerSSOLogin(event: Event) {
+    event.preventDefault();
+    this.ssoLogin.emit();
+  }
+
+  logout() {
+    this.logoutEvent.emit();
+  }
+}

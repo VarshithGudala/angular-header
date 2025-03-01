@@ -1,0 +1,150 @@
+/* Global styling for menu items */
+.nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.logo img {
+  height: 40px;
+  cursor: pointer;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3f7070;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Default menu item styles */
+.nav li a {
+  background-color: #3f7070;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Hover and Active state for menu items */
+.nav li a:hover,
+.nav li a:active {
+  color: green;
+}
+.nav li {
+  margin: 0 15px;
+  position: relative;
+}
+
+/* Submenus styling */
+.nav li ul {
+  display: none;
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+.cart {
+  display: flex;
+  align-items: center;
+}
+
+.cart img {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.cart-count {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Submenu items */
+.nav li ul li a {
+  background-color: white;
+  color: green;
+  display: block;
+  padding: 8px 12px;
+}
+
+/* Hover effect for submenus */
+.nav li ul li a:hover {
+  background-color: green;
+  color: white;
+}
+
+/* Display submenu on hover */
+.nav li:hover > ul {
+  display: block;
+}
+
+/* Styling for Sign In menu item */
+.nav li a.sign-in {
+  background-color: green;
+  border-radius: 8px;
+  color: white;
+  padding: 6px 6px;
+}
+
+.nav li a.sign-out {
+  background-color: green;
+  border-radius: 8px;
+  color: white;
+  padding: 6px 6px;
+}
+
+/* Styling for Continue With login */
+.nav li ul li.login {
+  background-color: white;
+  color: green;
+  display:flex;
+  font-size: 10px;
+  text-align:center;
+  margin-top: 1px;
+}
+
+/* Styling for Continue With SSO */
+.nav li ul li a.sso {
+  background-color: white;
+  color: green;
+  border: 1px solid green;
+  padding: 2px 2px;
+  font-size: 8px;
+  display: inline-block;
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* Ensure Login is above Continue With SSO */
+.nav li ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Additional spacing for Login label */
+/*.nav li ul li:first-child {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+*/
