@@ -1,10 +1,10 @@
 {
-  "name": "@varshithgudala/header",
-  "version": "1.0.2",
+  "name": "@coo/header",
+  "version": "1.0.3",
   "description": "A reusable Angular header component",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-github-username/angular-header.git"
+    "url": "https://github.com/@varshithgudala/angular-header.git"
   },
   "author": "Your Name",
   "license": "MIT",
