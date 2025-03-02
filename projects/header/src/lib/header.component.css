@@ -40,7 +40,7 @@
 /* Hover and Active state for menu items */
 .nav li a:hover,
 .nav li a:active {
-  color: green;
+  color: rgb(28, 0, 128);
 }
 .nav li {
   margin: 0 15px;

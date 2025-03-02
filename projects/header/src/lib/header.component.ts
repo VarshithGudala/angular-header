@@ -14,6 +14,7 @@ export class HeaderComponent {
   @Input() isLoggedIn: boolean = false;
   @Output() ssoLogin = new EventEmitter<void>();
   @Output() logoutEvent = new EventEmitter<void>();
+  @Output() externalLogin = new EventEmitter<void>();
 
   constructor(private router: Router) {}
   //private router = inject(Router);
@@ -28,6 +29,11 @@ export class HeaderComponent {
   triggerSSOLogin(event: Event) {
     event.preventDefault();
     this.ssoLogin.emit();
+  }
+
+triggerExternalLogin(event: Event) {
+    event.preventDefault();
+    this.externalLogin.emit();
   }
 
   logout(event: Event) {
