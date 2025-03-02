@@ -5,18 +5,17 @@
   
   <nav class="nav">
     <ul>
-      <li *ngIf="isLoggedIn"><a href="/customer" (click)="navigateTo('/customer')">Customer Search</a></li>
-
+      <li *ngIf="isLoggedIn"><a href="#" (click)="navigateTo('/customer', $event)">Customer Search</a></li>
       <li *ngIf="isLoggedIn">
         <a href="#">About Us</a>
         <ul>
-          <li><a href="/aboutourstory" (click)="navigateTo('/aboutourstory')">Our Story</a></li>
-          <li><a href="/aboutourmission" (click)="navigateTo('/aboutourmission')">Mission</a></li>
+          <li><a href="#" (click)="navigateTo('/aboutourstory', $event)">Our Story</a></li>
+          <li><a href="#" (click)="navigateTo('/aboutourmission', $event)">Mission</a></li>
         </ul>
       </li>
 
-      <li *ngIf="isLoggedIn"><a href="/contactus" (click)="navigateTo('/contactus')">Contact Us</a></li>
-      <li *ngIf="isLoggedIn"><a href="/order" (click)="navigateTo('/order')">Search</a></li>
+      <li *ngIf="isLoggedIn"><a href="#" (click)="navigateTo('/contactus', $event)">Contact Us</a></li>
+      <li *ngIf="isLoggedIn"><a href="#" (click)="navigateTo('/order', $event)">Search</a></li>
 
       <!-- Sign In menu -->
       <li *ngIf="!isLoggedIn">

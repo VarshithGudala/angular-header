@@ -15,9 +15,13 @@ export class HeaderComponent {
   @Output() ssoLogin = new EventEmitter<void>();
   @Output() logoutEvent = new EventEmitter<void>();
 
-  private router = inject(Router);
+  constructor(private router: Router) {}
+  //private router = inject(Router);
 
-  navigateTo(route: string) {
+  navigateTo(route: string, event: Event) {
+    if (event) {
+      event.preventDefault(); // Prevent default anchor link behavior
+    }
     this.router.navigate([route]);
   }
 
