@@ -30,7 +30,8 @@ export class HeaderComponent {
     this.ssoLogin.emit();
   }
 
-  logout() {
+  logout(event: Event) {
+    event.preventDefault();
     this.logoutEvent.emit();
   }
 }
