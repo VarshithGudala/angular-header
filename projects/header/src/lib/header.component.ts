@@ -14,6 +14,7 @@ export class HeaderComponent {
   @Input() isLoggedIn: boolean = false;
   @Output() ssoLogin = new EventEmitter<void>();
   @Output() logoutEvent = new EventEmitter<void>();
+  @Output() triggerGoogleLogin = new EventEmitter<void>();
   @Output() externalLogin = new EventEmitter<void>();
 
   constructor(private router: Router) {}
