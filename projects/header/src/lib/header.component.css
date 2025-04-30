@@ -24,11 +24,14 @@
 
 /* Logo styling */
 .logo {
-  display: flex;
-  align-items: center;
+  flex: 1 1 auto;
+  overflow: hidden;
 }
 
 .logo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
@@ -233,7 +236,14 @@
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .header {
-    padding: 8px 16px;
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .logo {
+    margin-bottom: 10px;
+    justify-content: center;
   }
 
   .nav li {
