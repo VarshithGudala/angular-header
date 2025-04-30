@@ -2,51 +2,63 @@
   <div class="logo" (click)="navigateTo('/home', $event)">
     <img src="../assets/The_Better_Being_Co_Logo.png" alt="Company Logo" />
   </div>
-  
+
   <nav class="nav">
     <ul>
-      <li *ngIf="isLoggedIn"><a href="#" (click)="navigateTo('/customer', $event)">Customer Search</a></li>
+      <!-- Main Navigation Menu - all require login -->
       <li *ngIf="isLoggedIn">
-        <a href="#">About Us</a>
+        <a href="#" (click)="navigateTo('/home', $event)">
+          <i class="pi pi-home"></i> Home
+        </a>
+      </li>
+
+      <li *ngIf="isLoggedIn">
+        <a href="#" (click)="navigateTo('/customer-search', $event)">
+          <i class="pi pi-users"></i> Customers
+        </a>
+      </li>
+
+      <li *ngIf="isLoggedIn">
+        <a href="#" (click)="navigateTo('/product-catalog', $event)">
+          <i class="pi pi-box"></i> Products
+        </a>
+      </li>
+
+      <li *ngIf="isLoggedIn">
+        <a href="#" (click)="navigateTo('/order-history', $event)">
+          <i class="pi pi-shopping-bag"></i> Orders
+        </a>
         <ul>
-          <li><a href="#" (click)="navigateTo('/aboutourstory', $event)">Our Story</a></li>
-          <li><a href="#" (click)="navigateTo('/aboutourmission', $event)">Mission</a></li>
+          <li><a href="#" (click)="navigateTo('/customer-search', $event)"><i class="pi pi-plus"></i> Create Order</a></li>
+          <li><a href="#" (click)="navigateTo('/order-history', $event)"><i class="pi pi-history"></i> Order History</a></li>
         </ul>
       </li>
 
-      <li *ngIf="isLoggedIn"><a href="#" (click)="navigateTo('/contactus', $event)">Contact Us</a></li>
-      <li *ngIf="isLoggedIn"><a href="#" (click)="navigateTo('/order', $event)">Search</a></li>
-
-      <!-- Sign In menu -->
-      <li *ngIf="!isLoggedIn">
-        <a href="#" class="sign-in">
-          <img src="assets/man-icon.png" class="icon" /> Sign In
-        </a>
-        <ul>
-          <li class="login">Login</li>
-          <li><a href="#" class="sso" (click)="triggerSSOLogin($event)">Continue With SSO</a></li>
-          <li><a href="#" class="sso" (click)="triggerExternalLogin($event)">External User Login</a></li>
-         </ul>
-      </li>
-
-      <!-- Logged-in user -->
       <li *ngIf="isLoggedIn">
-        <a href="#" class="user-name">
-          <img src="assets/man-icon.png" class="icon" /> {{ userName }}
-        </a>
+        <a href="#"><i class="pi pi-percentage"></i> Discounts</a>
         <ul>
-          <a href="#" class="sign-out" (click)="logout($event)">
-            <img src="assets/logout-icon.png" class="icon" /> Sign Out
-          </a>
+          <li><a href="#" class="coming-soon"><i class="pi pi-tag"></i> EDLP <span class="badge">coming soon</span></a></li>
+          <li><a href="#" class="coming-soon"><i class="pi pi-megaphone"></i> Brand Drive <span class="badge">coming soon</span></a></li>
         </ul>
       </li>
 
-      <!-- Shopping Cart -->
-      <li>
-        <a href="#" class="cart">
-          <img src="assets/cart-icon.png" />
-          <span class="cart-count">0</span>
-        </a>
+      <!-- Sign In menu (visible when logged out) -->
+      <li *ngIf="isLoggedIn">
+        <a href="#" class="sign-in"><i class="pi pi-sign-in"></i> Sign In</a>
+      </li>
+
+      <li class="login">Login</li>
+      <li><a href="#" class="sso" (click)="triggerSSOLogin($event)"><i class="pi pi-id-card"></i> Continue With SSO</a></li>
+      <li><button class="social-login microsoft" disabled><i class="pi pi-microsoft"></i> Sign in with Microsoft</button></li>
+      <li><a href="#" class="sso" (click)="triggerGoogleLogin($event)"><i class="pi pi-id-card"></i> Continue with Google</a></li>
+      <li><button class="social-login linkedin" disabled><i class="pi pi-linkedin"></i> Sign in with LinkedIn</button></li>
+
+      <!-- Logged-in user profile -->
+      <li *ngIf="isLoggedIn">
+        <a href="#" class="user-name"><i class="pi pi-user"></i> {{ userName }}</a>
+        <ul>
+          <li><a href="#" class="sign-out" (click)="logout($event)"><i class="pi pi-sign-out"></i> Sign Out</a></li>
+        </ul>
       </li>
     </ul>
   </nav>
