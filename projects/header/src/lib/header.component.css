@@ -449,12 +449,12 @@
 .nav li a.sign-in:hover {
   background-color: #3d8b40;
 }
-.nav li a.sign-out {
+/*.nav li a.sign-out {
   color: #f44336;
 }
 .nav li a.sign-out:hover {
   background-color: #ffebee;
-}
+}Commented*/
 
 /* User profile */
 /*Changed 1*/
