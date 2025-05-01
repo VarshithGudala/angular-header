@@ -3,37 +3,29 @@
     <img src="../assets/The_Better_Being_Co_Logo.png" alt="Company Logo" />
   </div>
 
-  <nav class="nav">
+  <!-- Desktop Navigation Menu (Centered) -->
+  <nav class="nav desktop-nav">
     <ul>
-      <!-- Main Navigation Menu - all require login -->
       <li *ngIf="isLoggedIn">
         <a href="#" (click)="navigateTo('/home', $event)">
           <i class="pi pi-home"></i> Home
         </a>
       </li>
-
       <li *ngIf="isLoggedIn">
         <a href="#" (click)="navigateTo('/customer-search', $event)">
           <i class="pi pi-users"></i> Customers
         </a>
       </li>
-
       <li *ngIf="isLoggedIn">
         <a href="#" (click)="navigateTo('/product-catalog', $event)">
           <i class="pi pi-box"></i> Products
         </a>
       </li>
-
       <li *ngIf="isLoggedIn">
         <a href="#" (click)="navigateTo('/order-history', $event)">
           <i class="pi pi-shopping-bag"></i> Orders
         </a>
-        <ul>
-          <li><a href="#" (click)="navigateTo('/customer-search', $event)"><i class="pi pi-plus"></i> Create Order</a></li>
-          <li><a href="#" (click)="navigateTo('/order-history', $event)"><i class="pi pi-history"></i> Order History</a></li>
-        </ul>
       </li>
-
       <li *ngIf="isLoggedIn">
         <a href="#"><i class="pi pi-percentage"></i> Discounts</a>
         <ul>
@@ -41,25 +33,60 @@
           <li><a href="#" class="coming-soon"><i class="pi pi-megaphone"></i> Brand Drive <span class="badge">coming soon</span></a></li>
         </ul>
       </li>
+    </ul>
+  </nav>
 
-      <!-- Sign In menu (visible when logged out) -->
-      <li *ngIf="isLoggedIn">
-        <a href="#" class="sign-in"><i class="pi pi-sign-in"></i> Sign In</a>
+  <!-- Hamburger Menu Button -->
+  <div class="hamburger-menu" (click)="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- User Controls -->
+  <div class="user-controls">
+    <ul *ngIf="!isLoggedIn">
+      <li>
+        <a href="#" class="sign-in">
+          <i class="pi pi-sign-in"></i> Sign In
+        </a>
+        <ul>
+          <li class="login">Login</li>
+          <li><a href="#" class="sso" (click)="triggerSSOLogin($event)"><i class="pi pi-id-card"></i> Continue With SSO</a></li>
+          <li><button class="social-login microsoft" disabled><i class="pi pi-microsoft"></i> Sign in with Microsoft</button></li>
+          <li><a href="#" class="sso" (click)="triggerGoogleLogin($event)"><i class="pi pi-id-card"></i> Continue with Google</a></li>
+          <li><button class="social-login linkedin" disabled><i class="pi pi-linkedin"></i> Sign in with LinkedIn</button></li>
+        </ul>
       </li>
+    </ul>
 
-      <li class="login">Login</li>
-      <li><a href="#" class="sso" (click)="triggerSSOLogin($event)"><i class="pi pi-id-card"></i> Continue With SSO</a></li>
-      <li><button class="social-login microsoft" disabled><i class="pi pi-microsoft"></i> Sign in with Microsoft</button></li>
-      <li><a href="#" class="sso" (click)="triggerGoogleLogin($event)"><i class="pi pi-id-card"></i> Continue with Google</a></li>
-      <li><button class="social-login linkedin" disabled><i class="pi pi-linkedin"></i> Sign in with LinkedIn</button></li>
-
-      <!-- Logged-in user profile -->
-      <li *ngIf="isLoggedIn">
-        <a href="#" class="user-name"><i class="pi pi-user"></i> {{ userName }}</a>
+    <ul *ngIf="isLoggedIn">
+      <li>
+        <a href="#" class="user-name">
+          <div class="user-avatar">{{ getFirstLetter() }}</div> {{ userName }}
+        </a>
         <ul>
           <li><a href="#" class="sign-out" (click)="logout($event)"><i class="pi pi-sign-out"></i> Sign Out</a></li>
         </ul>
       </li>
     </ul>
-  </nav>
+  </div>
+
+  <!-- Backdrop for mobile menu -->
+  <div class="mobile-nav-backdrop" [ngClass]="{ 'active': mobileMenuOpen }" (click)="closeMobileMenu()"></div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav" [ngClass]="{ 'active': mobileMenuOpen }">
+    <div class="mobile-user-info" *ngIf="isLoggedIn">
+      <div class="user-avatar">{{ getFirstLetter() }}</div>
+      <span>{{ userName }}</span>
+    </div>
+    <ul>
+      <li *ngIf="isLoggedIn"><a href="#" (click)="navigateTo('/home', $event)"><i class="pi pi-home"></i> Home</a></li>
+      <li *ngIf="isLoggedIn"><a href="#" (click)="navigateTo('/customer-search', $event)"><i class="pi pi-users"></i> Customers</a></li>
+      <li *ngIf="isLoggedIn"><a href="#" (click)="navigateTo('/product-catalog', $event)"><i class="pi pi-box"></i> Products</a></li>
+      <li *ngIf="isLoggedIn"><a href="#" (click)="navigateTo('/order-history', $event)"><i class="pi pi-shopping-bag"></i> Orders</a></li>
+      <li *ngIf="isLoggedIn"><a href="#"><i class="pi pi-percentage"></i> Discounts</a></li>
+      <li *ngIf="!isLoggedIn"><a href="#" class="sign-in" (click)="triggerSSOLogin($event)"><i class="pi pi-sign-in"></i> Sign In with SSO</a></li>
+      <li *ngIf="isLoggedIn"><a href="#" class="sign-out" (click)="logout($event)"><i class="pi pi-sign-out"></i> Sign Out</a></li>
+    </ul>
+  </div>
 </header>
