@@ -43,6 +43,7 @@
 
   <!-- User Controls -->
   <div class="user-controls">
+  <nav class="nav desktop-nav">
     <ul *ngIf="!isLoggedIn">
       <li>
         <a href="#" class="sign-in">
@@ -57,7 +58,9 @@
         </ul>
       </li>
     </ul>
+    </nav>
 
+    <nav class="nav desktop-nav">
     <ul *ngIf="isLoggedIn">
       <li>
         <a href="#" class="user-name">
@@ -68,6 +71,7 @@
         </ul>
       </li>
     </ul>
+  </nav>
   </div>
 
   <!-- Backdrop for mobile menu -->
