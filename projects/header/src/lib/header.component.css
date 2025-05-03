@@ -179,14 +179,6 @@
 }
 /**Changed 2 end**/
 
-/* Sign Out menu */
-/*.nav li a.sign-out {
-  color: #f44336;
-}
-
-.nav li a.sign-out:hover {
-  background-color: #ffebee;
-}commented*/
 
 /* Login header */
 .nav li ul li.login {
@@ -278,11 +270,6 @@
 }
 
 /* User profile */
-.user-name {
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-}
 
 .user-avatar {
   width: 30px;
@@ -458,7 +445,37 @@
 
 /* User profile */
 /*Changed 1*/
+
 .user-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+}
+
+@media (max-width: 768px) {
+  .user-name {
+    max-width: 100%;       /* ✅ Let it grow fully on small screens */
+    white-space: normal;   /* ✅ Allow wrapping if needed */
+    text-overflow: initial;
+    overflow: visible;
+  }
+}
+.user-name1 {
+  white-space: nowrap;              
+  overflow: hidden;                 
+  text-overflow: ellipsis;         
+  /*max-width: 160px;                
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.user-name2 {
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -597,8 +614,5 @@
   }
   .user-controls ul li a span {
     display: none;
-  }
-  .user-name {
-    font-size: 0;
   }
 }
