@@ -64,11 +64,8 @@
       <ul *ngIf="isLoggedIn">
        <li>
         <a href="#" class="user-name" [attr.title]="userName">
-          <div class="user-avatar">{{ getFirstLetter() }}</div> 
-          <span (click)="toggleName()">
-            {{ showFullName ? userName : (userName?.split(' ')[0] || userName) }}
-          </span>
-          
+          <div class="user-avatar">{{ getFirstLetter() }}</div> <span (click)="toggleName()">{{ displayUserName }}</span>
+
         </a>
         <ul>
           <li><a href="#" class="sign-out" (click)="logout($event)"><i class="pi pi-sign-out"></i> Sign Out</a></li>

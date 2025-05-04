@@ -25,8 +25,13 @@ export class HeaderComponent {
 
 toggleName() {
   this.showFullName = !this.showFullName;
-  this.userName = (this.showFullName ? this.userName : (this.userName?.split(' ')[0] || this.userName));
 }
+
+get displayUserName(): string {
+  if (!this.userName) return '';
+  return this.showFullName ? this.userName : this.userName.split(' ')[0];
+}
+
 
   navigateTo(route: string, event: Event) {
     if (event) {
@@ -57,6 +62,7 @@ toggleName() {
     this.logoutEvent.emit();
     this.closeMobileMenu();
   }
+  
 
   // Get first letter of user's name for avatar
   getFirstLetter(): string {
