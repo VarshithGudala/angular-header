@@ -25,6 +25,7 @@ export class HeaderComponent {
 
 toggleName() {
   this.showFullName = !this.showFullName;
+  this.userName = (this.showFullName ? this.userName : (this.userName?.split(' ')[0] || this.userName));
 }
 
   navigateTo(route: string, event: Event) {
