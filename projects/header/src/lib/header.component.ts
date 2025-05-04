@@ -21,6 +21,12 @@ export class HeaderComponent {
 
   constructor(private router: Router) {}
 
+  showFullName: boolean = false;
+
+toggleName() {
+  this.showFullName = !this.showFullName;
+}
+
   navigateTo(route: string, event: Event) {
     if (event) {
       event.preventDefault();

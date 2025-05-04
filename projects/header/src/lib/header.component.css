@@ -447,20 +447,19 @@
 /*Changed 1*/
 
 .user-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 160px;
+  white-space: nowrap;              /* ✅ Prevents wrapping */
+  overflow: hidden;                 /* ✅ Hides overflow if too long */
+  text-overflow: ellipsis;         /* ✅ Adds "..." if text is too long */
+  max-width: 160px;                 /* ✅ Adjust as needed */
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.2s ease;
+  cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .user-name {
-    max-width: 100%;       /* ✅ Let it grow fully on small screens */
-    white-space: normal;   /* ✅ Allow wrapping if needed */
-    text-overflow: initial;
-    overflow: visible;
-  }
-}
 .user-name1 {
   white-space: nowrap;              
   overflow: hidden;                 

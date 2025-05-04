@@ -58,20 +58,23 @@
         </ul>
       </li>
     </ul>
-    </nav>
+  </nav>
 
     <nav class="nav desktop-nav">
-    <ul *ngIf="isLoggedIn">
-      <li>
-        <a href="#" class="user-name">
-          <div class="user-avatar">{{ getFirstLetter() }}</div> {{ userName }}
+      <ul *ngIf="isLoggedIn">
+       <li>
+        <a href="#" class="user-name" [attr.title]="userName">
+          <div class="user-avatar">{{ getFirstLetter() }}</div> <span (click)="toggleName()">
+            {{ showFullName ? userName : (userName?.split(' ')[0] || userName) }}
+          </span>
+          
         </a>
         <ul>
           <li><a href="#" class="sign-out" (click)="logout($event)"><i class="pi pi-sign-out"></i> Sign Out</a></li>
         </ul>
-      </li>
-    </ul>
-  </nav>
+        </li>
+      </ul>
+    </nav>
   </div>
 
   <!-- Backdrop for mobile menu -->
