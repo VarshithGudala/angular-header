@@ -432,6 +432,10 @@
   border-radius: 8px;
   color: white;
   padding: 8px 12px;
+  display: inline-flex;       /* changed */
+  align-items: center;        /* changed */
+  white-space: nowrap;        /* changed */
+  gap: 6px;                   /* optional: space between icon and text */
 }
 .nav li a.sign-in:hover {
   background-color: #3d8b40;
@@ -447,10 +451,10 @@
 /*Changed 1*/
 
 .user-name {
-  white-space: nowrap;              /* ✅ Prevents wrapping */
-  overflow: hidden;                 /* ✅ Hides overflow if too long */
-  text-overflow: ellipsis;         /* ✅ Adds "..." if text is too long */
-  max-width: 160px;                 /* ✅ Adjust as needed */
+  white-space: nowrap;              
+  overflow: hidden;                 
+  text-overflow: ellipsis;         
+  max-width: 160px;               
   font-weight: 500;
   display: flex;
   align-items: center;
